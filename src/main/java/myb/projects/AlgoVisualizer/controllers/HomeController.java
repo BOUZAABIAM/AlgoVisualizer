@@ -8,16 +8,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+
     @RequestMapping("/")
     public String home(ModelMap modelMap){
         return "home";
     }
 
-    @RequestMapping("/insertionsort")
+    @RequestMapping(value = "/insertionsort")
     public String insertionSortView(ModelMap model) {
         Table arr = new Table(10);
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(arr);
-        return "home";
+        return "sortview";
+    }
+
+    @RequestMapping(value = "/mergesort")
+    public String mergeSortView(ModelMap model) {
+        return "sortview";
+    }
+
+    @RequestMapping(value = "/quicksort")
+    public String quickSortView(ModelMap model) {
+        return "sortview";
+    }
+
+    @RequestMapping(value = "/selectionsort")
+    public String selectionSortView(ModelMap model) {
+        return "sortview";
     }
 }
