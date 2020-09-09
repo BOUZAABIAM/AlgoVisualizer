@@ -33,7 +33,7 @@ public class Table {
     }
 
     public void fillArray(){
-        for(int i=0;i<this.size;i++){
+        for(int i=1;i<=this.size;i++){
             this.arr.add(i);
         }
     }
