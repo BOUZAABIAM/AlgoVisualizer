@@ -21,6 +21,9 @@ public class InsertionSort implements Sort {
                of their current position */
             while (j >= 0 && arr.getElementAtIndex(j) > key) {
                 arr.setElementAtIndex(j+1,arr.getElementAtIndex(j));
+                aux = new ArrayList();
+                for(int c:arr.getArr()) aux.add(c);
+                tables.add(aux);
                 j = j - 1;
 
             }
@@ -30,7 +33,7 @@ public class InsertionSort implements Sort {
             tables.add(aux);
         }
 
-        for(List<Integer> l :tables) System.out.println(l);
+        //for(List<Integer> l :tables) System.out.println(l);
     }
 
 
