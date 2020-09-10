@@ -2,6 +2,7 @@ package myb.projects.AlgoVisualizer.controllers;
 
 import myb.projects.AlgoVisualizer.models.Table;
 import myb.projects.AlgoVisualizer.services.InsertionSort;
+import myb.projects.AlgoVisualizer.services.SelectionSort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,6 +41,11 @@ public class HomeController {
 
     @RequestMapping(value = "/selectionsort")
     public String selectionSortView(ModelMap model) {
+        Table arr = new Table(10);
+        SelectionSort selectionSort = new SelectionSort();
+        selectionSort.sort(arr);
+
+        model.addAttribute("currentTable",selectionSort.tables);
         return "sortview";
     }
 }
