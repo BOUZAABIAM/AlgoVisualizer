@@ -2,12 +2,16 @@ package myb.projects.AlgoVisualizer.services;
 
 import myb.projects.AlgoVisualizer.models.Table;
 
-public class InsertionSort implements Sort {
+import java.util.*;
 
+public class InsertionSort implements Sort {
+    public List<List<Integer>> tables = new ArrayList<>();
     @Override
     public void sort(Table arr) {
-        //arr = new Table(this.size);
         int n = arr.getSize();
+        List aux = new ArrayList();
+        for(int c:arr.getArr()) aux.add(c);
+        tables.add(aux);
         for (int i = 1; i < n; ++i) {
             int key = arr.getElementAtIndex(i);
             int j = i - 1;
@@ -18,10 +22,15 @@ public class InsertionSort implements Sort {
             while (j >= 0 && arr.getElementAtIndex(j) > key) {
                 arr.setElementAtIndex(j+1,arr.getElementAtIndex(j));
                 j = j - 1;
+
             }
             arr.setElementAtIndex(j+1,key);
+            aux = new ArrayList();
+            for(int c:arr.getArr()) aux.add(c);
+            tables.add(aux);
         }
-        arr.printArray();
+
+        for(List<Integer> l :tables) System.out.println(l);
     }
 
 

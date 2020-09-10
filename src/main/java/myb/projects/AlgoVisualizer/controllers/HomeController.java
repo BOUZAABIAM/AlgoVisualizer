@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
 
@@ -21,7 +23,8 @@ public class HomeController {
         Table arr = new Table(10);
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(arr);
-        model.addAttribute("currentTable",arr.getArr());
+
+        model.addAttribute("currentTable",insertionSort.tables);
         return "sortview";
     }
 

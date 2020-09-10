@@ -13,7 +13,7 @@ public class Table {
         this.size = size;
         this.fillArray();
         this.shuffleArray();
-        this.printArray();
+        //this.printArray();
     }
 
     public List<Integer> getArr() {
