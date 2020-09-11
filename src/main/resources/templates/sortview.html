@@ -14,7 +14,7 @@
         <div class="grid-container-0">
             <div class="grid-container-1">
                 <div>
-
+                    <button class="button" onclick="start()">START</button>
                 </div>
                 <div class="grid-container-3">
                     <div>
@@ -33,8 +33,34 @@
                     <div></div>
                     <div></div>
                 </div>
-                <div>
-
+                <div class="grid-container-4">
+                    <label>Parameters</label>
+                    <div>
+                        <label>Size</label>
+                        <select name="cars" id="size">
+                            <option value="10">10</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="70">70</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Speed</label>
+                        <select name="cars" id="speed">
+                            <option value="1/4">1/4</option>
+                            <option value="1/2">1/2</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <button onclick="shuffle()">SHUFFLE</button>
                 </div>
             </div>
             <div class="grid-container-2">
@@ -50,7 +76,6 @@
 
     <script src="canvas.js"></script>
     <script>
-
         let canvas = document.getElementById('myCanvas');
         let CANVAS_WIDTH = canvas.width;
         let CANVAS_HEIGHT = canvas.height;
@@ -61,21 +86,31 @@
         let ARRAY_SIZE = current.length;
         let rect_y =20;
         let rect_width = (CANVAS_WIDTH - 2*X)/(2*ARRAY_SIZE-1);
-        ctx.beginPath();
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, 1250, 600)
-        ctx.fillStyle = "red";
+        let i =1;
+        function shuffle(){
 
-        for (let j = 0; j < current.length; j++) {
+            ctx.beginPath();
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, 1250, 600)
+            ctx.fillStyle = "red";
 
-            let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
-            let rect_x =X + j * (rect_width + rect_width);
-            console.log(rect_x)
+            for (let j = 0; j < current.length; j++) {
 
-            ctx.rect(rect_x, rect_y , rect_width, rect_height);
-            ctx.fill();
+                let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
+                let rect_x =X + j * (rect_width + rect_width);
+                console.log(rect_x)
+
+                ctx.rect(rect_x, rect_y , rect_width, rect_height);
+                ctx.fill();
+            }
+            i=1;
         }
-        draw(canvas,table);
+        shuffle();
+
+        function start(){
+            draw(canvas,table);
+        }
+
     </script>
 
 </body>

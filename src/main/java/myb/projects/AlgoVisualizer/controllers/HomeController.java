@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private int size = 500;
+    private int size = 200;
 
     @RequestMapping("/")
     public String home(ModelMap modelMap){

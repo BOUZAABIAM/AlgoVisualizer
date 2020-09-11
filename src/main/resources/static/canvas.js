@@ -1,5 +1,3 @@
-let i = 1;
-
 function draw(canvas,table) {
     setTimeout(function() {
         let ctx = canvas.getContext("2d");
