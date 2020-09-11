@@ -52,12 +52,13 @@
                     <div>
                         <label>Speed</label>
                         <select name="cars" id="speed">
-                            <option value="1/4">1/4</option>
-                            <option value="1/2">1/2</option>
+                            <option value="0.25">1/4</option>
+                            <option value="0.5">1/2</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="4">4</option>
                             <option value="8">8</option>
+                            <option value="10">10</option>
                         </select>
                     </div>
                     <button onclick="shuffle()">SHUFFLE</button>
@@ -87,6 +88,7 @@
         let rect_y =20;
         let rect_width = (CANVAS_WIDTH - 2*X)/(2*ARRAY_SIZE-1);
         let i =1;
+        let sp;
         function shuffle(){
 
             ctx.beginPath();
@@ -98,8 +100,6 @@
 
                 let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
                 let rect_x =X + j * (rect_width + rect_width);
-                console.log(rect_x)
-
                 ctx.rect(rect_x, rect_y , rect_width, rect_height);
                 ctx.fill();
             }
@@ -108,6 +108,9 @@
         shuffle();
 
         function start(){
+            let e = document.getElementById("speed");
+            let speed = e.options[e.selectedIndex].value;
+            sp = 100/(parseFloat(speed));
             draw(canvas,table);
         }
 

@@ -1,10 +1,11 @@
+
 function draw(canvas,table) {
     setTimeout(function() {
         let ctx = canvas.getContext("2d");
         let current = table[i];
         ctx.beginPath();
         ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, 1250, 600)
+        ctx.fillRect(0, 0, 1250, 600);
         ctx.fillStyle = "red";
         for (let j = 0; j < current.length; j++) {
             let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
@@ -15,7 +16,7 @@ function draw(canvas,table) {
         if (i < table.length) {
             draw(canvas,table);
         }
-    }, 10)
+    }, sp)
 }
 
 
