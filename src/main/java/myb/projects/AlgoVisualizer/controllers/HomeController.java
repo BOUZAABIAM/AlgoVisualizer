@@ -15,6 +15,8 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private int size = 500;
+
     @RequestMapping("/")
     public String home(ModelMap modelMap){
         return "home";
@@ -22,7 +24,7 @@ public class HomeController {
 
     @RequestMapping(value = "/insertionsort")
     public String insertionSortView(ModelMap model) {
-        Table arr = new Table(10);
+        Table arr = new Table(this.size);
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(arr);
 
@@ -37,7 +39,7 @@ public class HomeController {
 
     @RequestMapping(value = "/quicksort")
     public String quickSortView(ModelMap model) {
-        Table arr = new Table(10);
+        Table arr = new Table(this.size);
         QuickSort quickSort = new QuickSort();
         quickSort.sort(arr);
 
@@ -47,7 +49,7 @@ public class HomeController {
 
     @RequestMapping(value = "/selectionsort")
     public String selectionSortView(ModelMap model) {
-        Table arr = new Table(10);
+        Table arr = new Table(this.size);
         SelectionSort selectionSort = new SelectionSort();
         selectionSort.sort(arr);
 

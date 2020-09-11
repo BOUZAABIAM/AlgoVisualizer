@@ -8,17 +8,16 @@ function draw(canvas,table) {
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, 1250, 600)
         ctx.fillStyle = "red";
-        let x = 20;
         for (let j = 0; j < current.length; j++) {
-            ctx.rect(x + j * 10, 20, 10, current[j] * 10);
-            ctx.fill();
-            x += 10;
+            let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
+            let rect_x = X + j * (rect_width + rect_width);
+            ctx.fillRect(rect_x, rect_y , rect_width, rect_height);
         }
         i++;
         if (i < table.length) {
             draw(canvas,table);
         }
-    }, 1000)
+    }, 10)
 }
 
 

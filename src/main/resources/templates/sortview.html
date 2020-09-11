@@ -11,25 +11,30 @@
 </head>
 
 <body>
-    <div>
-        <div class="row">
-            <div class="col-2" style="background: #1a6caf; height: 750px">
-                <div class="col">
-                    <div class="row-2">
+        <div class="grid-container-0">
+            <div class="grid-container-1">
+                <div>
+
+                </div>
+                <div class="grid-container-3">
+                    <div>
                         <a href="/">Home</a>
                     </div>
-                    <div class="row-2">
+                    <div>
                         <a href="/insertionsort">Insertion Sort</a>
                     </div>
-                    <div class="row-2">
+                    <div>
                         <a href="/quicksort">Quick Sort</a>
                     </div>
-                    <div class="row-2">
-                        <a href="/mergesort">Merge Sort</a>
-                    </div>
-                    <div class="row-2">
+                    <div>
                         <a href="/selectionsort">Selection Sort</a>
                     </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+
                 </div>
             </div>
             <div class="grid-container-2">
@@ -38,27 +43,37 @@
                     <p>This application visualizes the most famous sort algorithms processes</p>
                 </div>
                 <div>
-                    <canvas id="myCanvas" style="height: 600px; width: 1250px"></canvas>
+                    <canvas id="myCanvas" style="height: 620px; width: 1250px"></canvas>
                 </div>
             </div>
         </div>
 
-    </div>
     <script src="canvas.js"></script>
     <script>
-        var canvas = document.getElementById('myCanvas');
-        var table = [[${currentTable}]];
+
+        let canvas = document.getElementById('myCanvas');
+        let CANVAS_WIDTH = canvas.width;
+        let CANVAS_HEIGHT = canvas.height;
+        let X = 20;
+        let table = [[${currentTable}]];
         let ctx = canvas.getContext("2d");
         let current = table[0];
+        let ARRAY_SIZE = current.length;
+        let rect_y =20;
+        let rect_width = (CANVAS_WIDTH - 2*X)/(2*ARRAY_SIZE-1);
         ctx.beginPath();
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, 1250, 600)
         ctx.fillStyle = "red";
-        let x = 20;
+
         for (let j = 0; j < current.length; j++) {
-            ctx.rect(x + j * 10, 20, 10, current[j] * 10);
+
+            let rect_height = current[j] * ((CANVAS_HEIGHT-2*X)/ARRAY_SIZE);
+            let rect_x =X + j * (rect_width + rect_width);
+            console.log(rect_x)
+
+            ctx.rect(rect_x, rect_y , rect_width, rect_height);
             ctx.fill();
-            x += 10;
         }
         draw(canvas,table);
     </script>
