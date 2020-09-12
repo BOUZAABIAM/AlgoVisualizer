@@ -34,24 +34,15 @@
                     <div></div>
                 </div>
                 <div class="grid-container-4">
+
                     <label>Parameters</label>
                     <div>
-                        <label>Size</label>
-                        <select name="cars" id="size">
-                            <option value="10">10</option>
-                            <option value="30">30</option>
-                            <option value="50">50</option>
-                            <option value="70">70</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <option value="500">500</option>
-                        </select>
+                        <label id="sizelabel"></label>
+                        <a href="/">Change current size</a>
                     </div>
                     <div>
                         <label>Speed</label>
-                        <select name="cars" id="speed">
+                        <select name="speed" id="speed">
                             <option value="0.25">1/4</option>
                             <option value="0.5">1/2</option>
                             <option value="1">1</option>
@@ -62,6 +53,7 @@
                         </select>
                     </div>
                     <button onclick="shuffle()">SHUFFLE</button>
+
                 </div>
             </div>
             <div class="grid-container-2">
@@ -77,6 +69,7 @@
 
     <script src="canvas.js"></script>
     <script>
+
         let canvas = document.getElementById('myCanvas');
         let CANVAS_WIDTH = canvas.width;
         let CANVAS_HEIGHT = canvas.height;
@@ -89,6 +82,9 @@
         let rect_width = (CANVAS_WIDTH - 2*X)/(2*ARRAY_SIZE-1);
         let i =1;
         let sp;
+
+        let x = document.getElementById('sizelabel');
+        x.innerText = "Size : "+current.length;
         function shuffle(){
 
             ctx.beginPath();

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -15,7 +17,14 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private int size = 200;
+    private int size = 10;
+
+    @PostMapping("/")
+    public String save(@ModelAttribute("size")int s, ModelMap model) {
+        model.addAttribute("size", s);
+        this.size = s;
+        return "sortview";
+    }
 
     @RequestMapping("/")
     public String home(ModelMap modelMap){

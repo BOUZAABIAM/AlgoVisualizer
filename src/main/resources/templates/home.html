@@ -33,8 +33,25 @@
                 <div></div>
                 <div></div>
             </div>
-            <div>
-
+            <div class="grid-container-5">
+                <label>Parameters</label>
+                <div>
+                    <label>Size</label>
+                    <form method="post" th:object="${size}">
+                        <select name="size" id="size">
+                            <option value="10">10</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="70">70</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                        </select>
+                        <input type = "submit" value = "Submit"/>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="grid-container-2">

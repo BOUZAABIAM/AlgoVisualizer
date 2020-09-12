@@ -78,6 +78,7 @@
     font-size: 12px;
     padding-top: 15px;
 }
+
 .grid-container-4 > label {
     background-color: rgba(89, 21, 255, 0.8);
     border: 1px solid black;
@@ -104,6 +105,33 @@
 .grid-container-4 > button:hover {
     opacity: 1
 }
+
+.grid-container-5 {
+    display: grid;
+    grid-template-rows: 35px 150px;
+    grid-template-columns: 160px;
+    grid-gap: 5px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container-5 > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 15px;
+}
+.grid-container-5 > label {
+    background-color: rgba(89, 21, 255, 0.8);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+
+}
+
+
 
 
 
