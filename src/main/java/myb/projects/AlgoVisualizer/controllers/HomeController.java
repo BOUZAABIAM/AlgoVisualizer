@@ -1,10 +1,7 @@
 package myb.projects.AlgoVisualizer.controllers;
 
 import myb.projects.AlgoVisualizer.models.Table;
-import myb.projects.AlgoVisualizer.services.BubbleSort;
-import myb.projects.AlgoVisualizer.services.InsertionSort;
-import myb.projects.AlgoVisualizer.services.QuickSort;
-import myb.projects.AlgoVisualizer.services.SelectionSort;
+import myb.projects.AlgoVisualizer.services.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,7 +40,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/bubblesort")
-    public String mergeSortView(ModelMap model) {
+    public String bubbleSortView(ModelMap model) {
         Table arr = new Table(this.size);
         BubbleSort bubbleSort = new BubbleSort();
         bubbleSort.sort(arr);
@@ -69,6 +66,16 @@ public class HomeController {
         selectionSort.sort(arr);
 
         model.addAttribute("currentTable",selectionSort.tables);
+        return "sortview";
+    }
+
+    @RequestMapping(value = "/heapsort")
+    public String heapSortView(ModelMap model) {
+        Table arr = new Table(this.size);
+        HeapSort heapSort = new HeapSort();
+        heapSort.sort(arr);
+
+        model.addAttribute("currentTable",heapSort.tables);
         return "sortview";
     }
 }
