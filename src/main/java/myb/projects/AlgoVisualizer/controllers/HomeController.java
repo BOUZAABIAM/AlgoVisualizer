@@ -1,6 +1,7 @@
 package myb.projects.AlgoVisualizer.controllers;
 
 import myb.projects.AlgoVisualizer.models.Table;
+import myb.projects.AlgoVisualizer.services.BubbleSort;
 import myb.projects.AlgoVisualizer.services.InsertionSort;
 import myb.projects.AlgoVisualizer.services.QuickSort;
 import myb.projects.AlgoVisualizer.services.SelectionSort;
@@ -41,8 +42,13 @@ public class HomeController {
         return "sortview";
     }
 
-    @RequestMapping(value = "/mergesort")
+    @RequestMapping(value = "/bubblesort")
     public String mergeSortView(ModelMap model) {
+        Table arr = new Table(this.size);
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.sort(arr);
+
+        model.addAttribute("currentTable",bubbleSort.tables);
         return "sortview";
     }
 
